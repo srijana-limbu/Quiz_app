@@ -102,14 +102,14 @@ button {
     display: none;
 }
 .incorrect {
-    background-color: #ffdde0;
-    color: red;
-    border-color: red;
+    background-color: #f4d0d3;
+    color: rgb(145, 4, 4);
+    border-color:rgb(145, 4, 4);
 }
 .correct {
-    background-color: rgb(243, 251, 229);
-    color: greenyellow;
-    border-color: greenyellow;
+    background-color: rgb(230, 243, 208);
+    color: rgb(77, 124, 6);
+    border-color: rgb(77, 124, 6);
 }
 #user-score {
     font-size: 1.5em;

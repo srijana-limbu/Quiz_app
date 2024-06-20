@@ -35,14 +35,15 @@ const quizArray = [
   },
   {
     id: "2",
-    question: "How can you create a hyperlink in HTML?",
+    question:
+      "In CSS, how would you create a linear gradient background that transitions from red at the top to blue at the bottom?",
     options: [
-      "<a url='http://www.example.com'>Example</a>",
-      "<a>http://www.example.com</a>",
-      "<a href='http://www.example.com'>Example</a>",
-      "<a link='http://www.example.com'>Example</a>",
+      "background: linear-gradient(to top, blue, red);",
+      "background: linear-gradient(to bottom, red, blue);",
+      "background: linear-gradient(blue, red);",
+      "background: gradient-linear(top, red, blue);",
     ],
-    correct: "<a href='http://www.example.com'>Example</a>",
+    correct: "background: linear-gradient(to bottom, red, blue);",
   },
   {
     id: "3",
@@ -82,14 +83,14 @@ const quizArray = [
   {
     id: "7",
     question:
-      "Which HTML element is used to specify a footer for a document or section?",
+      "Which of the following CSS properties is used to create a flexible layout container, making it responsive to its items' sizes?",
     options: [
-      "&lt; bottom&gt;",
-      "&lt; footer&gt;",
-      "&lt; section&gt;",
-      "&lt; foot&gt;",
+      "display: grid;",
+      "display: flex;",
+      "display: block;",
+      "display: inline;",
     ],
-    correct: "&lt; footer&gt;",
+    correct: "display: flex;",
   },
   {
     id: "8",
@@ -126,11 +127,18 @@ nextBtn.addEventListener(
       displayContainer.classList.add("hide");
       scoreContainer.classList.remove("hide");
       userScore.innerHTML =
-        "Your Score is &nbsp" + scoreCount + "&nbsp out of &nbsp"+questionCount + "&nbsp";
+        "Your Score is &nbsp" +
+        scoreCount +
+        "&nbsp out of &nbsp" +
+        questionCount +
+        "&nbsp";
     } else {
       countQuestion.innerHTML =
-        questionCount + 1 + "&nbsp of &nbsp" +
-        quizArray.length + "&nbsp Question";
+        questionCount +
+        1 +
+        "&nbsp of &nbsp" +
+        quizArray.length +
+        "&nbsp Question";
       quizDisplay(questionCount);
       count = 16;
       clearInterval(countDown);
@@ -209,7 +217,7 @@ function checker(userOption) {
     scoreCount++;
   } else {
     userOption.classList.add("incorrect");
-    // Incorrect comparison 
+    // Incorrect comparison
     options.forEach((element) => {
       if (element.innerText == quizArray[questionCount].correct) {
         element.classList.add("correct");
@@ -224,23 +232,23 @@ function checker(userOption) {
 }
 
 function initial() {
-    quizContainer.innerHTML = "";
-    questionCount = 0;
-    scoreCount = 0;
-    count = 16;
-    clearInterval(countDown);
-    timerDisplay();
-    quizCreator();
-    quizDisplay(questionCount);
+  quizContainer.innerHTML = "";
+  questionCount = 0;
+  scoreCount = 0;
+  count = 16;
+  clearInterval(countDown);
+  timerDisplay();
+  quizCreator();
+  quizDisplay(questionCount);
 }
 
 startBtn.addEventListener("click", () => {
-    startScreen.classList.add("hide");
-    displayContainer.classList.remove("hide");
-    initial();
+  startScreen.classList.add("hide");
+  displayContainer.classList.remove("hide");
+  initial();
 });
 
 window.onload = () => {
-    startScreen.classList.remove("hide");
-    displayContainer.classList.add("hide");
+  startScreen.classList.remove("hide");
+  displayContainer.classList.add("hide");
 };
